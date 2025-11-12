@@ -124,6 +124,26 @@
       border-bottom: 2px solid #ce1212;
     }
 
+    /* Menu Items */
+    .menu-item {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.7s ease;
+    }
+    .menu-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .menu-item img {
+      max-height: 230px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .menu-item:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Footer */
     footer {
       background-color: #f9f9f9;
       text-align: center;
@@ -146,8 +166,8 @@
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">About</a></li>
           <li class="nav-item"><a class="nav-link" href="#">Menu</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">About</a></li>
           <li class="nav-item"><a class="nav-link" href="#">Events</a></li>
           <li class="nav-item"><a class="nav-link" href="#">Chefs</a></li>
           <li class="nav-item"><a class="nav-link" href="#">Gallery</a></li>
@@ -193,8 +213,31 @@
         </li>
       </ul>
 
-      <div class="menu-content">
-        <p class="text-muted">Choose a category above to see our special dishes.</p>
+      <div class="menu-content mt-5">
+        <h3 class="fw-bold mb-5 text-danger" style="font-family: 'Poppins', sans-serif;">Starters</h3>
+
+        <div class="row gy-5">
+          <div class="col-lg-4 col-md-6 menu-item">
+            <img src="https://bootstrapmade.com/demo/templates/Yummy/assets/img/menu/menu-item-1.png" class="img-fluid rounded-3 mb-3" alt="Magnam Tiste">
+            <h5 class="fw-bold">Magnam Tiste</h5>
+            <p class="text-muted">Lorem, deren, trataro, filede, nerada</p>
+            <p class="text-danger fw-bold fs-5">$5.95</p>
+          </div>
+
+          <div class="col-lg-4 col-md-6 menu-item">
+            <img src="https://bootstrapmade.com/demo/templates/Yummy/assets/img/menu/menu-item-2.png" class="img-fluid rounded-3 mb-3" alt="Aut Luia">
+            <h5 class="fw-bold">Aut Luia</h5>
+            <p class="text-muted">Lorem, deren, trataro, filede, nerada</p>
+            <p class="text-danger fw-bold fs-5">$14.95</p>
+          </div>
+
+          <div class="col-lg-4 col-md-6 menu-item">
+            <img src="https://bootstrapmade.com/demo/templates/Yummy/assets/img/menu/menu-item-3.png" class="img-fluid rounded-3 mb-3" alt="Est Eligendi">
+            <h5 class="fw-bold">Est Eligendi</h5>
+            <p class="text-muted">Lorem, deren, trataro, filede, nerada</p>
+            <p class="text-danger fw-bold fs-5">$8.95</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -209,14 +252,30 @@
 
   <!-- Scroll Animation Script -->
   <script>
-    window.addEventListener("scroll", function() {
+    function showOnScroll() {
       const menuSection = document.querySelector(".menu-section");
+      const items = document.querySelectorAll(".menu-item");
       const sectionTop = menuSection.getBoundingClientRect().top;
       const windowHeight = window.innerHeight;
+
+      // Aktifkan animasi section
       if (sectionTop < windowHeight - 100) {
         menuSection.classList.add("visible");
       }
-    });
+
+      // Animasi tiap item menu
+      items.forEach((item, index) => {
+        const itemTop = item.getBoundingClientRect().top;
+        if (itemTop < windowHeight - 50) {
+          setTimeout(() => {
+            item.classList.add("visible");
+          }, index * 150);
+        }
+      });
+    }
+
+    window.addEventListener("scroll", showOnScroll);
+    window.addEventListener("load", showOnScroll);
   </script>
 </body>
 </html>
