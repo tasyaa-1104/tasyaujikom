@@ -13,20 +13,29 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
+
+            // FIELD BARU (UNTUK MARKETPLACE)
+            $table->string('username')->unique();
+            $table->enum('role', ['admin', 'member'])->default('member');
+
+            // FIELD BAWAAN (TETAP)
+            $table->string('name')->nullable();
+            $table->string('email')->unique()->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+
             $table->timestamps();
         });
 
+        // PASSWORD RESET
         Schema::create('password_reset_tokens', function (Blueprint $table) {
             $table->string('email')->primary();
             $table->string('token');
             $table->timestamp('created_at')->nullable();
         });
 
+        // SESSION
         Schema::create('sessions', function (Blueprint $table) {
             $table->string('id')->primary();
             $table->foreignId('user_id')->nullable()->index();
