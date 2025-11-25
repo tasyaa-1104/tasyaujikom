@@ -13,6 +13,8 @@ class TokoController extends Controller
     public function index()
     {
         //
+        $data['Toko'] = Toko::with('user')->get();
+        return view('admin.toko.index', compact('data'));
     }
 
     /**

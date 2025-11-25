@@ -12,29 +12,25 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
-    public function login(Request $request)
-    {
-        $request->validate([
-            'username' => 'required',
-            'password' => 'required'
-        ]);
+   public function login(Request $request)
+{
+    $request->validate([
+        'username' => 'required',
+        'password' => 'required'
+    ]);
 
-        $credentials = [
-            'username' => $request->username,
-            'password' => $request->password,
-        ];
+    // Jika database pakai kolom username
+    $credentials = $request->only('username', 'password');
 
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-
-            // 👉 Redirect langsung ke dashboard admin
-           return redirect()->route('admin.dashboard.index');
-        }
-
-        return back()->withErrors([
-            'loginError' => 'Username atau password salah!'
-        ]);
+    if (Auth::attempt($credentials)) {
+        $request->session()->regenerate();
+        return redirect()->route('admin.das.index');
     }
+
+    return back()->withErrors([
+        'loginError' => 'Username atau password salah!'
+    ])->withInput(); // supaya username tidak hilang
+}
 
     public function logout(Request $request)
     {

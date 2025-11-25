@@ -96,7 +96,7 @@
         <h2>Admin Panel</h2>
 
         <div class="menu">
-            <a href="{{ route('admin.dashboard') }}" class="active">📊 Dashboard</a>
+            <a href="{{ route('admin.das.index') }}" class="active">📊 Dashboard</a>
             <a href="{{ route('admin.produk') }}">🛒 Produk</a>
             <a href="#">🏬 Toko</a>
             <a href="#">📁 Kategori</a>

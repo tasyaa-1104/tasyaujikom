@@ -48,7 +48,7 @@
         <a href="/produk">Produk</a>
         <a href="/kategori">Kategori</a>
         <a href="/pengguna">Pengguna</a>
-        <a href="/toko">Toko</a>
+        <a href="{{ route('admin.toko.index') }}">Toko</a>
         <a href="/logout" class="text-danger">Logout</a>
     </div>
 

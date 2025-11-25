@@ -65,7 +65,6 @@
             border-radius: 12px;
             margin-top: 25px;
             width: 100%;
-            max-width: 700px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.06);
         }
 
@@ -78,7 +77,7 @@
             font-size: 15px;
         }
 
-        input, select, textarea {
+        input, textarea, select {
             width: 100%;
             padding: 12px;
             margin-top: 6px;
@@ -123,8 +122,8 @@
         <h2>Admin Panel</h2>
 
         <div class="menu">
-            <a href="{{ route('admin.dashboard') }}">📊 Dashboard</a>
-            <a href="{{ route('produk.index') }}" class="active">🛒 Produk</a>
+            <a href="{{ route('admin.das.index') }}">📊 Dashboard</a>
+            <a href="{{ route('admin.produk.create') }}" class="active">🛒 Produk</a>
             <a href="#">🏬 Toko</a>
             <a href="#">📁 Kategori</a>
             <a href="#">👤 Pengguna</a>
@@ -139,7 +138,9 @@
 
         <div class="card">
 
-            <form action="{{ route('produk.store') }}" method="POST" enctype="multipart/form-data">
+            🎯 <small style="color:#6b7280;">Isi data produk dengan lengkap</small><br><br>
+
+            <form action="{{ route('admin.produk.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
 
                 <div class="form-group">
@@ -158,40 +159,21 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Kategori</label>
-                    <select name="kategori_id" required>
-                        <option value="">-- Pilih Kategori --</option>
-                        @foreach($kategori as $item)
-                            <option value="{{ $item->id }}">{{ $item->nama_kategori }}</option>
-                        @endforeach
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label>Toko</label>
-                    <select name="toko_id" required>
-                        <option value="">-- Pilih Toko --</option>
-                        @foreach($toko as $tk)
-                            <option value="{{ $tk->id }}">{{ $tk->nama_toko }}</option>
-                        @endforeach
-                    </select>
-                </div>
-
-                <div class="form-group">
                     <label>Deskripsi</label>
-                    <textarea name="deskripsi" required></textarea>
+                    <textarea name="deskripsi"></textarea>
                 </div>
 
                 <div class="form-group">
                     <label>Foto Produk</label>
-                    <input type="file" name="gambar">
-                    <small style="color:gray;">*Opsional. Format: jpg, jpeg, png. Max 2MB</small>
+                    <input type="file" name="gambar" accept="image/*">
+                    <small style="color:#6b7280;">Format: JPG, JPEG, PNG — Max 2MB</small>
                 </div>
 
-                <button type="button" onclick="window.location='{{ route('produk.index') }}'" class="btn-back">Kembali</button>
+                <button type="button" onclick="window.location='{{ route('admin.produk.create') }}'" class="btn-back">Kembali</button>
                 <button type="submit" class="btn-submit">Simpan Produk</button>
 
             </form>
+
         </div>
 
     </div>

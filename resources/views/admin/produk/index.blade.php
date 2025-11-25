@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Produk</title>
+    <title>Daftar Produk</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -45,7 +46,7 @@
         .menu a:hover,
         .menu a.active {
             background: #4f46e5;
-            color: white;
+            color: #fff;
         }
 
         /* CONTENT */
@@ -60,31 +61,16 @@
             margin-bottom: 20px;
         }
 
-        /* BUTTON */
-        .btn {
-            padding: 10px 18px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
-        }
-
         .btn-add {
             background: #10b981;
+            padding: 10px 15px;
+            border-radius: 6px;
             color: white;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
         }
 
-        .btn-edit {
-            background: #3b82f6;
-            color: white;
-        }
-
-        .btn-delete {
-            background: #ef4444;
-            color: white;
-        }
-
-        /* TABLE */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -94,13 +80,14 @@
             box-shadow: 0 4px 20px rgba(0,0,0,0.06);
         }
 
-        th, td {
+        th,
+        td {
             padding: 14px;
             font-size: 15px;
         }
 
         th {
-            background: #4f46e5;
+            background: #1f2937;
             color: white;
             text-align: left;
         }
@@ -109,15 +96,32 @@
             background: #f9fafb;
         }
 
+        .btn-edit {
+            background: #facc15;
+            padding: 6px 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .btn-delete {
+            background: #ef4444;
+            color: white;
+            padding: 6px 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
         img.product-img {
             width: 60px;
             height: 60px;
             object-fit: cover;
             border-radius: 6px;
         }
-
     </style>
 </head>
+
 <body>
 
     <!-- SIDEBAR -->
@@ -125,72 +129,79 @@
         <h2>Admin Panel</h2>
 
         <div class="menu">
-            <a href="{{ route('admin.dashboard') }}">📊 Dashboard</a>
+            <a href="{{ route('admin.das.index') }}">📊 Dashboard</a>
             <a href="{{ route('admin.produk') }}" class="active">🛒 Produk</a>
-            <a href="#">🏬 Toko</a>
+            <a href="{{ route('admin.toko.index') }}">🏬 Toko</a>
             <a href="#">📁 Kategori</a>
             <a href="#">👤 Pengguna</a>
-            <a href="/logout" style="background:#dc2626;">🚪 Logout</a>
+            <a href="/logout" style="background:#dc2626; color:white;">🚪 Logout</a>
         </div>
     </div>
 
     <!-- CONTENT -->
     <div class="content">
 
-        <div class="title">Data Produk</div>
+        <div class="title">Daftar Produk</div>
 
         <a href="{{ route('admin.produk.create') }}">
-            <button class="btn btn-add">+ Tambah Produk</button>
+            <button class="btn-add">+ Tambah Produk</button>
         </a>
 
         <br><br>
 
-        <!-- TABLE -->
         <table>
             <thead>
                 <tr>
-                    <th>#</th>
-                    <th>Foto</th>
+                    <th>No</th>
                     <th>Nama Produk</th>
-                    <th>Harga</th>
                     <th>Kategori</th>
+                    <th>Harga</th>
                     <th>Stok</th>
+                    <th>Gambar</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
 
             <tbody>
-                @foreach ($produk as $p)
+                @forelse ($produk as $p)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-
-                    <td>
-                        <img src="{{ asset('storage/produk/' . $p->gambar) }}" class="product-img">
-                    </td>
-
-                    <td>{{ $p->nama }}</td>
-                    <td>Rp {{ number_format($p->harga, 0, ',', '.') }}</td>
-                    <td>{{ $p->kategori }}</td>
+                    <td>{{ $p->nama_produk }}</td>
+                    <td>{{ $p->kategori->nama ?? '-' }}</td>
+                    <td>Rp {{ number_format($p->harga) }}</td>
                     <td>{{ $p->stok }}</td>
 
                     <td>
+                        @if ($p->gambar)
+                            <img src="{{ asset('storage/produk/' . $p->gambar) }}" class="product-img">
+                        @else
+                            Tidak ada gambar
+                        @endif
+                    </td>
+
+                    <td>
                         <a href="{{ route('admin.produk.edit', $p->id) }}">
-                            <button class="btn btn-edit">Edit</button>
+                            <button class="btn-edit">Edit</button>
                         </a>
 
                         <form action="{{ route('admin.produk.delete', $p->id) }}" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')
-                            <button class="btn btn-delete" onclick="return confirm('Hapus produk ini?')">Hapus</button>
+                            <button class="btn-delete" onclick="return confirm('Hapus produk ini?')">Hapus</button>
                         </form>
                     </td>
                 </tr>
-                @endforeach
-            </tbody>
 
+                @empty
+                <tr>
+                    <td colspan="7" style="text-align:center; color:gray;">Belum ada data produk.</td>
+                </tr>
+                @endforelse
+            </tbody>
         </table>
 
     </div>
 
 </body>
+
 </html>

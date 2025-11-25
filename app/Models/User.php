@@ -13,8 +13,10 @@ class User extends Authenticatable
     protected $table = 'users';
 
     protected $fillable = [
+        'nama',
         'username',
         'password',
+        'id_toko',
         'role',
     ];
 
@@ -31,7 +33,7 @@ class User extends Authenticatable
     }
 
     // RELASI KE TOKO (1 user = 1 toko)
-    public function toko()
+    public function Toko()
     {
         return $this->hasOne(Toko::class, 'id_user');
     }
