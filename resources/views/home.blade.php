@@ -127,25 +127,23 @@
 
 <body>
 
-  <!-- Navbar -->
   <nav class="navbar navbar-expand-lg fixed-top">
-  <div class="container">
-    <a class="navbar-brand" href="#">Yummy<span style="color:#000;">.</span></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Menu</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Gallery</a></li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ route('login') }}">Login</a>
-        </li>
-      </ul>
+    <div class="container">
+      <a class="navbar-brand" href="#">Yummy<span style="color:#000;">.</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
+          <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
+        </ul>
+      </div>
     </div>
-  </div>
 </nav>
+
 
 
   <!-- Hero -->
@@ -174,69 +172,97 @@
 
       <div class="menu-content mt-5">
 
-        <!-- STARTERS -->
-        <div class="menu-list active" id="starters">
-          <h3 class="fw-bold mb-5 text-danger">Starters</h3>
-          <div class="row gy-5">
-            <div class="col-lg-4 col-md-6 menu-item">
-              <img src="{{ asset('img/nasi.jpg') }}" class="img-fluid rounded-3 mb-3">
-              <h5 class="fw-bold">Nasi Ayam Kampus</h5>
-              <p class="text-muted">Enak, gurih, mantap!</p>
-              <p class="text-danger fw-bold fs-5">Rp.25.000</p>
-            </div>
+      <!-- STARTERS -->
+<div class="menu-list active" id="starters">
+  <h3 class="fw-bold mb-5 text-danger">Starters</h3>
+  <div class="row gy-5">
 
-            <div class="col-lg-4 col-md-6 menu-item">
-              <img src="{{ asset('img/kuning.jpg') }}" class="img-fluid rounded-3 mb-3">
-              <h5 class="fw-bold">Nasi Kuning</h5>
-              <p class="text-muted">Gurih dan wangi.</p>
-              <p class="text-danger fw-bold fs-5">Rp.14.000</p>
-            </div>
+    <div class="col-lg-4 col-md-6 menu-item">
+      <img src="{{ asset('img/nasi.jpg') }}" class="img-fluid rounded-3 mb-3">
+      <h5 class="fw-bold">Nasi Ayam Kampus</h5>
+      <p class="text-muted">Enak, gurih, mantap!</p>
+      <a href="https://wa.me/6281234567890?text=Hai%20admin,%20saya%20mau%20pesan:%0A*Nasi%20Ayam%20Kampus*%0AHarga:%20Rp.25.000"
+         class="text-danger fw-bold fs-5" target="_blank" style="text-decoration:none;">
+         Rp.25.000
+      </a>
+    </div>
 
-            <div class="col-lg-4 col-md-6 menu-item">
-              <img src="{{ asset('img/katsu.jpg') }}" class="img-fluid rounded-3 mb-3">
-              <h5 class="fw-bold">Nasi Ayam Katsu</h5>
-              <p class="text-muted">Katsu crispy premium.</p>
-              <p class="text-danger fw-bold fs-5">Rp.15.000</p>
-            </div>
-          </div>
-        </div>
+    <div class="col-lg-4 col-md-6 menu-item">
+      <img src="{{ asset('img/kuning.jpg') }}" class="img-fluid rounded-3 mb-3">
+      <h5 class="fw-bold">Nasi Kuning</h5>
+      <p class="text-muted">Gurih dan wangi.</p>
+      <a href="https://wa.me/6281234567890?text=Hai%20admin,%20saya%20mau%20pesan:%0A*Nasi%20Kuning*%0AHarga:%20Rp.14.000"
+         class="text-danger fw-bold fs-5" target="_blank" style="text-decoration:none;">
+         Rp.14.000
+      </a>
+    </div>
+
+    <div class="col-lg-4 col-md-6 menu-item">
+      <img src="{{ asset('img/katsu.jpg') }}" class="img-fluid rounded-3 mb-3">
+      <h5 class="fw-bold">Nasi Ayam Katsu</h5>
+      <p class="text-muted">Katsu crispy premium.</p>
+      <a href="https://wa.me/6281234567890?text=Hai%20admin,%20saya%20mau%20pesan:%0A*Nasi%20Ayam%20Katsu*%0AHarga:%20Rp.15.000"
+         class="text-danger fw-bold fs-5" target="_blank" style="text-decoration:none;">
+         Rp.15.000
+      </a>
+    </div>
+
+  </div>
+</div>
 
         <!-- BREAKFAST -->
-        <div class="menu-list" id="breakfast">
-          <h3 class="fw-bold mb-5 text-danger">Breakfast</h3>
-          <div class="row gy-5">
-            <div class="col-lg-4 col-md-6 menu-item">
-              <img src="{{ asset('img/pisang.jpg') }}" class="img-fluid rounded-3 mb-3">
-              <h5 class="fw-bold">Roti Selai Kacang</h5>
-              <p class="text-muted">Lezat & simple.</p>
-              <p class="text-danger fw-bold fs-5">Rp.8.000</p>
-            </div>
+<div class="menu-list" id="breakfast">
+  <h3 class="fw-bold mb-5 text-danger">Breakfast</h3>
 
-            <div class="col-lg-4 col-md-6 menu-item">
-              <img src="{{ asset('img/ps.jpg') }}" class="img-fluid rounded-3 mb-3">
-              <h5 class="fw-bold">Telur Bakso</h5>
-              <p class="text-muted">Protein tinggi.</p>
-              <p class="text-danger fw-bold fs-5">Rp.10.000</p>
-            </div>
-          </div>
-        </div>
+  <div class="row gy-5">
+    <div class="col-lg-4 col-md-6 menu-item">
+      <img src="{{ asset('img/ps.jpg') }}" class="img-fluid rounded-3 mb-3">
+      <h5 class="fw-bold">Roti Selai Kacang</h5>
+      <p class="text-muted">Lezat & simple.</p>
+      <a href="https://wa.me/6281234567890?text=Hai%20admin,%20saya%20mau%20pesan:%0A*Roti%20Selai%20Kacang*%0AHarga:%20Rp.8.000" class="text-danger fw-bold fs-5" target="_blank" style="text-decoration:none;">
+        Rp.8.000
+      </a>
+    </div>
+
+    <div class="col-lg-4 col-md-6 menu-item">
+      <img src="{{ asset('img/pisang.jpg') }}" class="img-fluid rounded-3 mb-3">
+      <h5 class="fw-bold">Telur Bakso</h5>
+      <p class="text-muted">Protein tinggi.</p>
+      <a href="https://wa.me/6281234567890?text=Hai%20admin,%20saya%20mau%20pesan:%0A*Telur%20Bakso*%0AHarga:%20Rp.10.000" class="text-danger fw-bold fs-5" target="_blank" style="text-decoration:none;">
+        Rp.10.000
+      </a>
+    </div>
+  </div>
+</div>
 
         <!-- DRINK -->
-        <div class="menu-list" id="drink">
-          <h3 class="fw-bold mb-5 text-danger">Drink</h3>
-          <div class="row gy-5">
-            <div class="col-lg-4 col-md-6 menu-item">
-              <img src="{{ asset('img/boba.jpg') }}" class="img-fluid rounded-3 mb-3">
-              <h5 class="fw-bold">Matcha Boba</h5>
-              <p class="text-muted">Manis segar!</p>
-              <p class="text-danger fw-bold fs-5">Rp.4.000</p>
-            </div>
+<div class="menu-list" id="drink">
+  <h3 class="fw-bold mb-5 text-danger">Drink</h3>
+  <div class="row gy-5">
 
-            <div class="col-lg-4 col-md-6 menu-item">
-              <img src="{{ asset('img/lemon.jpg') }}" class="img-fluid rounded-3 mb-3">
-              <h5 class="fw-bold">Es Lemon</h5>
-              <p class="text-muted">Fresh vitamin C.</p>
-              <p class="text-danger fw-bold fs-5">Rp.6.000</p>
+    <div class="col-lg-4 col-md-6 menu-item">
+      <img src="{{ asset('img/boba.jpg') }}" class="img-fluid rounded-3 mb-3">
+      <h5 class="fw-bold">Matcha Boba</h5>
+      <p class="text-muted">Manis segar!</p>
+      <a href="https://wa.me/6281234567890?text=Hai%20admin,%20saya%20mau%20pesan:%0A*Matcha%20Boba*%0AHarga:%20Rp.4.000"
+         class="text-danger fw-bold fs-5" target="_blank" style="text-decoration:none;">
+         Rp.4.000
+      </a>
+    </div>
+
+    <div class="col-lg-4 col-md-6 menu-item">
+      <img src="{{ asset('img/lemon.jpg') }}" class="img-fluid rounded-3 mb-3">
+      <h5 class="fw-bold">Es Lemon</h5>
+      <p class="text-muted">Fresh vitamin C.</p>
+      <a href="https://wa.me/6281234567890?text=Hai%20admin,%20saya%20mau%20pesan:%0A*Es%20Lemon*%0AHarga:%20Rp.6.000"
+         class="text-danger fw-bold fs-5" target="_blank" style="text-decoration:none;">
+         Rp.6.000
+      </a>
+    </div>
+
+  </div>
+</div>
+
             </div>
           </div>
         </div>
