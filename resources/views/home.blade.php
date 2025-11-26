@@ -22,6 +22,7 @@
     .navbar {
       background: rgba(255, 255, 255, 0.9);
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      margin-right: 100px;
     }
     .navbar-brand {
       font-family: 'Poppins', sans-serif;
@@ -31,9 +32,9 @@
     }
     .navbar-nav .nav-link {
       color: #333;
-      font-weight: 500;
-      margin-right: 20px;
-      transition: 0.3s;
+      font-weight: 100;
+      margin-right: 500px;
+      transition: 15.3s;
     }
     .navbar-nav .nav-link:hover,
     .navbar-nav .nav-link.active {
@@ -133,7 +134,7 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
@@ -217,7 +218,7 @@
   <div class="row gy-5">
     <div class="col-lg-4 col-md-6 menu-item">
       <img src="{{ asset('img/ps.jpg') }}" class="img-fluid rounded-3 mb-3">
-      <h5 class="fw-bold">Roti Selai Kacang</h5>
+      <h5 class="fw-bold">pangsit kuah</h5>
       <p class="text-muted">Lezat & simple.</p>
       <a href="https://wa.me/6281234567890?text=Hai%20admin,%20saya%20mau%20pesan:%0A*Roti%20Selai%20Kacang*%0AHarga:%20Rp.8.000" class="text-danger fw-bold fs-5" target="_blank" style="text-decoration:none;">
         Rp.8.000
@@ -226,7 +227,7 @@
 
     <div class="col-lg-4 col-md-6 menu-item">
       <img src="{{ asset('img/pisang.jpg') }}" class="img-fluid rounded-3 mb-3">
-      <h5 class="fw-bold">Telur Bakso</h5>
+      <h5 class="fw-bold">pisang coklat</h5>
       <p class="text-muted">Protein tinggi.</p>
       <a href="https://wa.me/6281234567890?text=Hai%20admin,%20saya%20mau%20pesan:%0A*Telur%20Bakso*%0AHarga:%20Rp.10.000" class="text-danger fw-bold fs-5" target="_blank" style="text-decoration:none;">
         Rp.10.000
